@@ -5,7 +5,7 @@
         <SideNav />
       </div>
       <div class="col p-5">
-        <div class="container-fluid">
+        <div class="container">
           <router-view />
         </div>
       </div>
@@ -14,13 +14,17 @@
 </template>
 
 <script>
-import SideNav from '../components/navigation/SideNav.vue';
+import SideNav from '../components/navigation/SideNav.vue'
 
 export default {
- name: 'DashboardLayout',
- components: { SideNav},
- created () { console.log('created: dashboard layout') },
- destoyed () { console.log('destroyed: dashboard layout') }
+  name: 'DashboardLayout',
+  components: { SideNav },
+  created() {
+    console.log('created: dashboard layout')
+  },
+  destoyed() {
+    console.log('destroyed: dashboard layout')
+  }
 }
 </script>
 

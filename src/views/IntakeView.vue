@@ -2,7 +2,7 @@
   <div>
     <h1 class="fs-3 fw-bold mb-3">Add a New Foster</h1>
   </div>
-  <div>
+  <div class="w-md-75">
     <form @submit.prevent="addFoster">
       <div class="row g-3">
         <div class="col-12">
@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="float-end mt-4">
-        <button type="submit" class="btn btn-primary">Add Foster</button>
+        <button type="submit" class="btn btn-secondary">Add Foster</button>
       </div>
     </form>
   </div>
@@ -135,3 +135,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+@media (min-width: 992px) {
+  .w-md-75 {
+    width: 75% !important;
+  }
+}
+</style>
