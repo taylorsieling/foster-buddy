@@ -10,21 +10,31 @@
   </div>
   <hr />
   <div id="dash-stats" class="d-flex flex-row justify-content-around fw-bold">
-    <div class="m-2">
-      <!-- Dynamic - user.current_fosters.length -->
-      <p class="fs-2">6</p>
-      <p>Current Fosters</p>
+    <div class="d-flex flex-row align-items-center">
+      <i class="bi bi-arrow-up-circle-fill text-secondary fs-1 me-2"></i>
+      <div class="m-2">
+        <!-- Dynamic - user.current_fosters.length -->
+        <p class="fs-2">6</p>
+        <p>Current Fosters</p>
+      </div>
     </div>
     <div class="vr"></div>
-    <div class="m-2">
-      <p class="fs-2">2</p>
-      <p>Current Litters</p>
+    <div class="d-flex flex-row align-items-center">
+      <i class="bi bi-arrow-up-circle-fill text-success fs-1 me-2"></i>
+      <div class="m-2">
+        <!-- Dynamic - user.current_fosters.length -->
+        <p class="fs-2">6</p>
+        <p>Current Fosters</p>
+      </div>
     </div>
     <div class="vr"></div>
-    <div class="m-2">
-      <!-- Dynamic - user.fosters.length -->
-      <p class="fs-2">62</p>
-      <p>Total Fosters</p>
+    <div class="d-flex flex-row align-items-center">
+      <i class="bi bi-arrow-up-circle-fill text-warning fs-1 me-2"></i>
+      <div class="m-2">
+        <!-- Dynamic - user.current_fosters.length -->
+        <p class="fs-2">6</p>
+        <p>Current Fosters</p>
+      </div>
     </div>
   </div>
   <hr />
