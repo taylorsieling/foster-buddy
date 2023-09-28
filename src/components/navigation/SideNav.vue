@@ -1,85 +1,58 @@
 <template>
-  <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
-    <div class="d-flex flex-column align-items-center align-items-sm-start px-4 pt-5 text-white min-vh-100">
-      <a href="#" class="d-flex flex-wrap align-items-center text-body text-decoration-none mb-4">
-        <img src="https://avatars.githubusercontent.com/u/68246505?v=4" alt="Profile Picture" width="40" height="40" class="rounded-circle me-3">
-        <span class="fs-3">Taylor</span>
+  <div
+    class="d-flex flex-column align-items-center align-items-md-start text-dark px-4 pt-5 min-vh-100"
+  >
+    <a href="/" class="d-flex flex-wrap align-items-center text-decoration-none mb-4">
+      <img
+        src="https://avatars.githubusercontent.com/u/68246505?v=4"
+        alt="Profile Picture"
+        width="40"
+        height="40"
+        class="rounded-circle"
+      />
+      <!-- Dynamic: user.name -->
+      <span class="fs-4 d-none d-md-inline ms-3">Taylor</span>
+    </a>
+    <ul class="nav nav-pills flex-column mb-auto align-items-center align-items-md-start" id="menu">
+      <li v-for="link in menuLinks" :key="link.id" class="nav-item">
+        <NavLink :link="link" />
+      </li>
+    </ul>
+    <div class="mb-5">
+      <a href="/" class="d-flex flex-wrap align-items-center text-decoration-none mt-1">
+        <i class="bi bi-info-circle-fill text-primary"></i>
+        <span class="fs-6 d-none d-md-inline ms-3">Support</span>
       </a>
-      <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-        <li v-for="link in headerLinks" :key="link.id">
-              <router-link class="block py-2 pl-3 pr-4 name-black bg-white" 
-                :to="`${link.page}`">{{link.name}}
-              </router-link>
-            </li>
-          <li class="nav-item">
-              <a href="#" class="nav-link align-middle px-0">
-                  <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
-              </a>
-          </li>
-          <li>
-              <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
-              <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                  <li class="w-100">
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1 </a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2 </a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-              <a href="#" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
-          </li>
-          <li>
-              <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                  <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Bootstrap</span></a>
-              <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                  <li class="w-100">
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 1</a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Item</span> 2</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-              <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Products</span> </a>
-                  <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                  <li class="w-100">
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 1</a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 2</a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 3</a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline">Product</span> 4</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-              <a href="#" class="nav-link px-0 align-middle">
-                  <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-          </li>
-      </ul>
+      <a href="/" class="d-flex flex-wrap align-items-center text-decoration-none mt-1">
+        <i class="bi bi-dash-circle-fill text-primary"></i>
+        <span class="fs-6 d-none d-md-inline ms-3">Logout</span>
+      </a>
     </div>
   </div>
 </template>
 
 <script>
+import NavLink from './NavLink.vue'
+
 export default {
   name: 'SideNav',
+  components: { NavLink },
   data() {
     return {
       menuLinks: [
-        { id: 0, name: 'Dashboard', page:'/' },
-        { id: 1, name: 'Fosters', page:'/fosters' },
-        { id: 2, name: 'Intake', page: '/intake'}
+        {
+          id: 0,
+          name: 'Dashboard',
+          path: '/dashboard',
+          icon: 'bi bi-house-door-fill'
+        },
+        {
+          id: 2,
+          name: 'Intake',
+          path: '/intake',
+          icon: 'bi bi-clipboard2-heart-fill'
+        },
+        { id: 1, name: 'Fosters', path: '/fosters', icon: 'bi bi-list-stars' }
       ]
     }
   }
