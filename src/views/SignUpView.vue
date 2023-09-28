@@ -1,4 +1,3 @@
-
 <template>
   <div class="bg-white p-4">
     <form class="form-signup" @submit.prevent="signup">
@@ -47,7 +46,6 @@ export default {
   },
   methods: {
     signup () {
-      console.log(this.data)
       this.plain.post('/signup', { email: this.email, password: this.password, password_confirmation: this.password_confirmation })
         .then(response => this.signupSuccessful(response))
         .catch(error => this.signupFailed(error))
